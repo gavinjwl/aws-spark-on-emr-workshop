@@ -1,16 +1,21 @@
 # EMR Workshop
 
+- EMR Setup
+- Work with EMR
+
 ## EMR Setup
 
-Agenda:
+[Step-by-step](./0-emr-setup.ipynb)
 
-1. [Create KeyPair](https://emr-etl.workshop.aws/setup/keypair.html)
+1. Create KeyPair
 1. Create Security Group with Specific IP address
-1. [Launch EMR Cluster](https://emr-etl.workshop.aws/cluster_creation.html) with specfic applications and configurations.
-1. [Launch EMR Notebook](https://emr-etl.workshop.aws/spark_etl/create_emr_notebook.html)
+1. Launch EMR Cluster with specfic applications and configurations.
+1. Launch EMR Notebook
 1. Upload sample data
 
 ## Work with EMR
+
+[Step-by-step](./1-work-with-emr.ipynb)
 
 1. [Cataloging your data](https://serverless-data-lake-immersionday.workshop.aws/en/lab2-cat-etl-process-data/catalog.html)
 1. Execute Apache Spark jobs with
