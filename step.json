@@ -1,0 +1,19 @@
+[
+    {
+        "Name": "sample-spark",
+        "Type": "CUSTOM_JAR",
+        "Jar": "command-runner.jar",
+        "Args": [
+            "spark-submit",
+            "--name",
+            "sample-spark",
+            "s3://<your-bucket>/sample-spark.py",
+            "default",
+            "spark_on_emr_workshop",
+            "curated",
+            "tripdata",
+            "s3://<your-bucket>"
+        ],
+        "ActionOnFailure": "CONTINUE"
+    }
+]
