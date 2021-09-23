@@ -1,17 +1,11 @@
-USE default;
+CREATE DATABASE IF NOT EXISTS ${target_database};
 
-DESCRIBE TABLE tripdata;
+DROP TABLE IF EXISTS ${target_database}.${target_table};
 
-SELECT * FROM tripdata LIMIT 10;
-
-CREATE DATABASE IF NOT EXISTS curated;
-
-DROP TABLE IF EXISTS curated.tripdata;
-
-CREATE TABLE curated.tripdata
-USING CSV
+CREATE TABLE ${target_database}.${target_table}
+USING PARQUET
 PARTITIONED BY (_year, _month, _day, _hour)
-LOCATION 'parquet/tripdata'
+LOCATION '${target_host}/parquet/${target_table}'
 TBLPROPERTIES ('mode'='overwrite')
 AS (
     SELECT
@@ -41,6 +35,10 @@ AS (
             total_amount,
             payment_type,
             trip_type
-        FROM tripdata
+        FROM ${source_database}.${source_table}
     )
-)
+    WHERE
+        lpep_pickup_datetime IS NOT NULL AND lpep_dropoff_datetime IS NOT NULL
+);
+
+DESCRIBE TABLE ${target_database}.${target_table};

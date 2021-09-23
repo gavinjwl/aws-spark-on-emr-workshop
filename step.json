@@ -7,7 +7,7 @@
             "spark-submit",
             "--name",
             "sample-spark",
-            "s3://<your-bucket>/sample-spark.py",
+            "s3://<your-bucket>/sample.py",
             "default",
             "spark_on_emr_workshop",
             "curated",
